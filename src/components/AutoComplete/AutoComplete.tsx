@@ -78,20 +78,31 @@ const AutoComplete = React.forwardRef(function AutoComplete(
       </div>
       {anchorEl && (
         <Popper open={popupOpen} anchorEl={anchorEl}>
-          <ul {...getListboxProps()}>
+          <ul
+            {...getListboxProps()}
+            className="bg-neutral-800 text-sm p-2 my-3 w-80 overflow-auto rounded-md max-h-[300px] border-orange-900 border-[1px] text-neutral-300"
+          >
             {(groupedOptions as AutoCompletePropsType["options"]).map(
               (option, index) => {
                 const optionProps = getOptionProps({ option, index });
-
+                console.log(optionProps);
                 return (
-                  <li {...optionProps} key={option.key}>
+                  <li
+                    {...optionProps}
+                    key={option.key}
+                    className="rounded-md p-2 bg-neutral-700/60 hover:cursor-pointer hover:bg-orange-500/20 mb-2 aria-selected:border-orange-800 aria-selected:border-solid aria-selected:border aria-selected:bg-orange-900/30 "
+                  >
                     {option.label}
                   </li>
                 );
               }
             )}
 
-            {groupedOptions.length === 0 && <li>No results</li>}
+            {groupedOptions.length === 0 && (
+              <li className="rounded-md p-2  text-center cursor-default ">
+                No results
+              </li>
+            )}
           </ul>
         </Popper>
       )}
