@@ -2,7 +2,8 @@ import { useState } from "react";
 import AutoComplete from "./components/AutoComplete/AutoComplete";
 
 function App() {
-  const [input, setInput] = useState("");
+  const [input1, setInput1] = useState("");
+  const [input2, setInput2] = useState("");
 
   const options = [
     { label: "test1", value: "TEST1", key: 1 },
@@ -64,22 +65,41 @@ function App() {
       ),
     },
     {
-      label: `On Input Change : ${input}`,
+      label: `On Input Change : ${input1}`,
       component: (
         <AutoComplete
           multiple={false}
           options={options}
           onInputChange={(value) => {
-            setInput(value);
+            setInput1(value);
           }}
         />
+      ),
+    },
+    {
+      label: `Change the Input value : ${input2} `,
+      component: (
+        <div className="flex flex-col gap-1">
+          <input
+            type="text"
+            placeholder="Write smtg here..."
+            onChange={(e) => {
+              setInput2(e.target.value);
+            }}
+          />
+          <AutoComplete
+            multiple={false}
+            options={options}
+            inputValue={input2}
+          />
+        </div>
       ),
     },
   ];
   return (
     <div className="min-h-screen pt-5 h-full pb-96 w-full flex flex-col gap-4 items-center bg-neutral-200">
-      {components.map((item) => (
-        <div>
+      {components.map((item, index) => (
+        <div key={index}>
           <span> {item.label} </span>
           {item.component}
         </div>

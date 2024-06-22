@@ -46,6 +46,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
     onInputChange(event, value, reason) {
       updatedProps.onInputChange(value);
     },
+    inputValue: updatedProps.inputValue,
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);

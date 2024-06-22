@@ -2,7 +2,9 @@ import { AutoCompletePropsType } from "./types";
 
 export function setDefaults(
   props: AutoCompletePropsType
-): Required<AutoCompletePropsType> {
+): Required<Omit<AutoCompletePropsType, "inputValue">> & {
+  inputValue: AutoCompletePropsType["inputValue"];
+} {
   return {
     options: props.options ?? [],
     multiple: props.multiple ?? false,
@@ -13,5 +15,6 @@ export function setDefaults(
     loadingText: props.loadingText ?? "Loading...",
     placement: props.placement ?? "bottom",
     onInputChange: props.onInputChange ?? (() => {}),
+    inputValue: props.inputValue,
   };
 }
