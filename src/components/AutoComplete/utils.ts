@@ -2,9 +2,10 @@ import { AutoCompletePropsType } from "./types";
 
 export function setDefaults(
   props: AutoCompletePropsType
-): AutoCompletePropsType {
+): Required<AutoCompletePropsType> {
   return {
     options: props.options ?? [],
-    multiple: false,
+    multiple: props.multiple ?? false,
+    placeholder: props.placeholder ?? "Insert a placeholder ...",
   };
 }

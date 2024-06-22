@@ -44,6 +44,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);
+
   return (
     <>
       <div
@@ -53,11 +54,12 @@ const AutoComplete = React.forwardRef(function AutoComplete(
         } `}
       >
         <input
+          {...getInputProps()}
           id={id}
           className="bg-transparent w-full outline-0 border-0 text-neutral-200 py-3 px-2"
+          placeholder={updatedProps.placeholder}
           // disabled={disabled}
           // readOnly={readOnly}
-          {...getInputProps()}
         />
         <Button
           {...getClearProps()}
