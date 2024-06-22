@@ -7,5 +7,6 @@ export function setDefaults(
     options: props.options ?? [],
     multiple: props.multiple ?? false,
     placeholder: props.placeholder ?? "Insert a placeholder ...",
+    isDisabled: props.isDisabled ?? false,
   };
 }

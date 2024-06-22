@@ -44,32 +44,40 @@ const AutoComplete = React.forwardRef(function AutoComplete(
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);
+  const hasClearIcon = !updatedProps.isDisabled;
 
   return (
     <>
       <div
         ref={rootRef}
-        className={`flex gap-2 px-2 justify-center items-center bg-neutral-800 w-80 rounded-lg border border-solid-[1px] border-orange-800 shadow-orange-800  ${
-          focused && "shadow-sm "
-        } `}
+        className={`flex gap-2 px-2 justify-center items-center bg-neutral-800 w-80 rounded-lg  ${
+          !updatedProps.isDisabled &&
+          "border-orange-700 shadow-orange-700 border border-solid-[1px]"
+        }   ${focused && "shadow-sm "} `}
       >
         <input
           {...getInputProps()}
           id={id}
           className="bg-transparent w-full outline-0 border-0 text-neutral-200 py-3 px-2"
           placeholder={updatedProps.placeholder}
-          // disabled={disabled}
+          disabled={updatedProps.isDisabled}
           // readOnly={readOnly}
         />
-        <Button
-          {...getClearProps()}
-          className="text-neutral-200  rounded-sm  p-1  "
-        >
-          <IoCloseOutline className="size-5" />
-        </Button>
+        {hasClearIcon && (
+          <Button
+            {...getClearProps()}
+            className="text-neutral-200  rounded-sm  p-1  "
+          >
+            <IoCloseOutline className="size-5" />
+          </Button>
+        )}
         <Button
           {...getPopupIndicatorProps()}
-          className="text-neutral-200 bg-neutral-700 rounded-sm border-orange-800 border-[1px] p-1  "
+          disabled={updatedProps.isDisabled}
+          className={`text-neutral-200  rounded-sm ${
+            !updatedProps.isDisabled &&
+            " bg-neutral-700 border-orange-800 border-[1px]"
+          }   p-1  `}
         >
           {popupOpen ? (
             <IoChevronUpOutline className="size-5" />

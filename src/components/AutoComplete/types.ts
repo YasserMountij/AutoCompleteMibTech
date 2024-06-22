@@ -8,4 +8,5 @@ export type AutoCompletePropsType = {
   options: OptionType[];
   multiple: boolean;
   placeholder?: string;
+  isDisabled?: boolean;
 };
