@@ -37,9 +37,15 @@ function App() {
         />
       ),
     },
+    {
+      label: "Not clearable",
+      component: (
+        <AutoComplete multiple={false} options={options} isClearable={false} />
+      ),
+    },
   ];
   return (
-    <div className="min-h-svh w-full flex flex-col gap-4 items-center bg-neutral-400 ">
+    <div className="min-h-screen pt-5 h-full pb-96 w-full flex flex-col gap-4 items-center bg-neutral-400  ">
       {components.map((item) => (
         <div>
           <span> {item.label} </span>

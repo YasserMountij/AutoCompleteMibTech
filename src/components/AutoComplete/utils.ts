@@ -8,5 +8,6 @@ export function setDefaults(
     multiple: props.multiple ?? false,
     placeholder: props.placeholder ?? "Insert a placeholder ...",
     isDisabled: props.isDisabled ?? false,
+    isClearable: props.isClearable ?? true,
   };
 }

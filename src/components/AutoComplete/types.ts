@@ -9,4 +9,6 @@ export type AutoCompletePropsType = {
   multiple: boolean;
   placeholder?: string;
   isDisabled?: boolean;
+  isClearable?: boolean;
+
 };

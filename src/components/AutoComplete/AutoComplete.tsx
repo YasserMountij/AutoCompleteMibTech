@@ -44,7 +44,8 @@ const AutoComplete = React.forwardRef(function AutoComplete(
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);
-  const hasClearIcon = !updatedProps.isDisabled;
+  const hasClearIcon =
+    updatedProps.isClearable && !updatedProps.isDisabled && dirty;
 
   return (
     <>
