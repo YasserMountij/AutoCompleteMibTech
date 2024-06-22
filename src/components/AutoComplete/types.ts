@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 type OptionType = {
   label: string;
   value: string;
@@ -10,5 +12,6 @@ export type AutoCompletePropsType = {
   placeholder?: string;
   isDisabled?: boolean;
   isClearable?: boolean;
-
+  isLoading?: boolean;
+  loadingText?: ReactNode;
 };

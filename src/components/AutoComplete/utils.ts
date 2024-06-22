@@ -9,5 +9,7 @@ export function setDefaults(
     placeholder: props.placeholder ?? "Insert a placeholder ...",
     isDisabled: props.isDisabled ?? false,
     isClearable: props.isClearable ?? true,
+    isLoading: props.isLoading ?? false,
+    loadingText: props.loadingText ?? "Loading...",
   };
 }

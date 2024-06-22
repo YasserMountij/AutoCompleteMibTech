@@ -43,6 +43,17 @@ function App() {
         <AutoComplete multiple={false} options={options} isClearable={false} />
       ),
     },
+    {
+      label: "Loading",
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={options}
+          // isLoading={true}
+          loadingText={"Custom Loading Text"}
+        />
+      ),
+    },
   ];
   return (
     <div className="min-h-screen pt-5 h-full pb-96 w-full flex flex-col gap-4 items-center bg-neutral-400  ">
