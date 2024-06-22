@@ -9,15 +9,15 @@ function App() {
     { label: "test1", value: "TEST1", key: 1 },
     { label: "test2", value: "TEST2", key: 2 },
     { label: "test3", value: "TEST3", key: 3 },
-    { label: "test4", value: "TEST1", key: 4 },
-    { label: "test5", value: "TEST2", key: 5 },
-    { label: "test6", value: "TEST3", key: 6 },
-    { label: "test7", value: "TEST1", key: 7 },
-    { label: "test8", value: "TEST2", key: 8 },
-    { label: "test9", value: "TEST3", key: 9 },
-    { label: "test10", value: "TEST1", key: 10 },
-    { label: "test11", value: "TEST2", key: 11 },
-    { label: "test12", value: "TEST3", key: 12 },
+    { label: "test4", value: "TEST4", key: 4 },
+    { label: "test5", value: "TEST5", key: 5 },
+    { label: "test6", value: "TEST6", key: 6 },
+    { label: "test7", value: "TEST7", key: 7 },
+    { label: "test8", value: "TEST8", key: 8 },
+    { label: "test9", value: "TEST9", key: 9 },
+    { label: "test10", value: "TEST10", key: 10 },
+    { label: "test11", value: "TEST11", key: 11 },
+    { label: "test12", value: "TEST12", key: 12 },
   ];
 
   const components = [
@@ -77,7 +77,7 @@ function App() {
       ),
     },
     {
-      label: `Change the Input value : ${input2} `,
+      label: `Controlled Input value : ${input2} `,
       component: (
         <div className="flex flex-col gap-1">
           <input
@@ -93,6 +93,16 @@ function App() {
             inputValue={input2}
           />
         </div>
+      ),
+    },
+    {
+      label: `On Close (check logs)`,
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={options}
+          onClose={(value) => console.log(`closed : ${value}`)}
+        />
       ),
     },
   ];

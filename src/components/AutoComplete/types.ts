@@ -18,4 +18,5 @@ export type AutoCompletePropsType = {
   placement?: PopperOwnProps["placement"];
   onInputChange?: (value: string) => void;
   inputValue?: string;
+  onClose?: (value: OptionType | null) => void;
 };
