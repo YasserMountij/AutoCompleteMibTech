@@ -1,5 +1,11 @@
 import { useState } from "react";
 import AutoComplete from "./components/AutoComplete/AutoComplete";
+import {
+  IoFlameOutline,
+  IoHelp,
+  IoHomeOutline,
+  IoLocationOutline,
+} from "react-icons/io5";
 
 function App() {
   const [input1, setInput1] = useState("");
@@ -112,6 +118,19 @@ function App() {
           multiple={false}
           options={options}
           shouldCloseOnSelect={false}
+        />
+      ),
+    },
+    {
+      label: `Custom Icons`,
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={options}
+          renderClearIcon={<IoFlameOutline />}
+          renderClosedPopupIcon={<IoHelp />}
+          renderLoadingIcon={<IoHomeOutline />}
+          renderOpenedPopupIcon={<IoLocationOutline />}
         />
       ),
     },

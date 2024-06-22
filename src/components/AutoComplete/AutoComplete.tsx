@@ -3,12 +3,6 @@ import React from "react";
 import { unstable_useForkRef as useForkRef } from "@mui/utils";
 import { Button } from "@mui/base/Button";
 import { Popper } from "@mui/base/Popper";
-import {
-  IoChevronDownOutline,
-  IoChevronUpOutline,
-  IoCloseOutline,
-  IoSyncOutline,
-} from "react-icons/io5";
 import { AutoCompletePropsType } from "./types";
 import { setDefaults } from "./utils";
 
@@ -57,6 +51,10 @@ const AutoComplete = React.forwardRef(function AutoComplete(
   const hasClearIcon =
     updatedProps.isClearable && !updatedProps.isDisabled && dirty;
 
+  const CustomClearIcon = () => <>{updatedProps.renderClearIcon}</>;
+  const CustomLoadingIcon = () => <>{updatedProps.renderLoadingIcon}</>;
+  const CustomOpenedPopupIcon = () => <>{updatedProps.renderOpenedPopupIcon}</>;
+  const CustomClosedPopupIcon = () => <>{updatedProps.renderClosedPopupIcon}</>;
   return (
     <>
       <div
@@ -79,12 +77,12 @@ const AutoComplete = React.forwardRef(function AutoComplete(
             {...getClearProps()}
             className="text-neutral-200  rounded-sm  p-1  "
           >
-            <IoCloseOutline className="size-5" />
+            <CustomClearIcon />
           </Button>
         )}
         {updatedProps.isLoading ? (
           <div className="flex justify-center items-center text-white px-2">
-            <IoSyncOutline className="animate-spin size-5" />
+            <CustomLoadingIcon />
           </div>
         ) : (
           <Button
@@ -95,11 +93,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
               " bg-neutral-700 border-orange-800 border-[1px]"
             }   p-1  `}
           >
-            {popupOpen ? (
-              <IoChevronUpOutline className="size-5" />
-            ) : (
-              <IoChevronDownOutline className="size-5" />
-            )}
+            {popupOpen ? <CustomOpenedPopupIcon /> : <CustomClosedPopupIcon />}
           </Button>
         )}
       </div>

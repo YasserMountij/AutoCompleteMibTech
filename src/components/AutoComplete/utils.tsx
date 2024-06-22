@@ -1,3 +1,9 @@
+import {
+  IoChevronDownOutline,
+  IoChevronUpOutline,
+  IoCloseOutline,
+  IoSyncOutline,
+} from "react-icons/io5";
 import { AutoCompletePropsType } from "./types";
 
 export function setDefaults(props: AutoCompletePropsType): Required<
@@ -18,5 +24,17 @@ export function setDefaults(props: AutoCompletePropsType): Required<
     inputValue: props.inputValue,
     onClose: props.onClose ?? (() => {}),
     shouldCloseOnSelect: props.shouldCloseOnSelect ?? true,
+    renderClearIcon: props.renderClearIcon ?? (
+      <IoCloseOutline className="size-5" />
+    ),
+    renderLoadingIcon: props.renderLoadingIcon ?? (
+      <IoSyncOutline className="animate-spin size-5" />
+    ),
+    renderOpenedPopupIcon: props.renderOpenedPopupIcon ?? (
+      <IoChevronUpOutline className="size-5" />
+    ),
+    renderClosedPopupIcon: props.renderClosedPopupIcon ?? (
+      <IoChevronDownOutline className="size-5" />
+    ),
   };
 }

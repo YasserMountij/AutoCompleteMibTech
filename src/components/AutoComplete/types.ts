@@ -20,4 +20,9 @@ export type AutoCompletePropsType = {
   onInputChange?: (value: string) => void;
   inputValue?: string;
   onClose?: (value: OptionType | null) => void;
+
+  renderClearIcon?: React.ReactNode;
+  renderLoadingIcon?: React.ReactNode;
+  renderOpenedPopupIcon?: React.ReactNode;
+  renderClosedPopupIcon?: React.ReactNode;
 };
