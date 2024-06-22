@@ -11,6 +11,7 @@ export function setDefaults(
     isClearable: props.isClearable ?? true,
     isLoading: props.isLoading ?? false,
     loadingText: props.loadingText ?? "Loading...",
-    placement: props.placement ?? "auto",
+    placement: props.placement ?? "bottom",
+    onInputChange: props.onInputChange ?? (() => {}),
   };
 }

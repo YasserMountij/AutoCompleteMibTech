@@ -42,6 +42,10 @@ const AutoComplete = React.forwardRef(function AutoComplete(
     groupedOptions,
   } = useAutocomplete({
     options: updatedProps.options,
+    disabled: updatedProps.isDisabled,
+    onInputChange(event, value, reason) {
+      updatedProps.onInputChange(value);
+    },
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);

@@ -1,6 +1,9 @@
+import { useState } from "react";
 import AutoComplete from "./components/AutoComplete/AutoComplete";
 
 function App() {
+  const [input, setInput] = useState("");
+
   const options = [
     { label: "test1", value: "TEST1", key: 1 },
     { label: "test2", value: "TEST2", key: 2 },
@@ -60,9 +63,21 @@ function App() {
         <AutoComplete multiple={false} options={options} placement="top" />
       ),
     },
+    {
+      label: `On Input Change : ${input}`,
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={options}
+          onInputChange={(value) => {
+            setInput(value);
+          }}
+        />
+      ),
+    },
   ];
   return (
-    <div className="min-h-screen pt-5 h-full pb-96 w-full flex flex-col gap-4 items-center bg-neutral-400  ">
+    <div className="min-h-screen pt-5 h-full pb-96 w-full flex flex-col gap-4 items-center bg-neutral-200">
       {components.map((item) => (
         <div>
           <span> {item.label} </span>
