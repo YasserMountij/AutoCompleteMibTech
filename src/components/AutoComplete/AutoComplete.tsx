@@ -9,11 +9,15 @@ import {
   IoCloseOutline,
 } from "react-icons/io5";
 import { AutoCompletePropsType } from "./types";
+import { setDefaults } from "./utils";
 
 const AutoComplete = React.forwardRef(function AutoComplete(
   props: AutoCompletePropsType,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
+  /** set default value for undefined properties */
+  const updatedProps = setDefaults(props);
+
   /** hooks */
   const {
     expanded,
@@ -36,24 +40,40 @@ const AutoComplete = React.forwardRef(function AutoComplete(
     setAnchorEl,
     groupedOptions,
   } = useAutocomplete({
-    options: props.options,
+    options: updatedProps.options,
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);
   return (
     <>
-      <div ref={rootRef}>
+      <div
+        ref={rootRef}
+        className={`flex gap-2 px-2 justify-center items-center bg-neutral-800 w-80 rounded-lg border border-solid-[1px] border-orange-800 shadow-orange-800  ${
+          focused && "shadow-sm "
+        } `}
+      >
         <input
           id={id}
+          className="bg-transparent w-full outline-0 border-0 text-neutral-200 py-3 px-2"
           // disabled={disabled}
           // readOnly={readOnly}
           {...getInputProps()}
         />
-        <Button {...getClearProps()}>
-          <IoCloseOutline />
+        <Button
+          {...getClearProps()}
+          className="text-neutral-200  rounded-sm  p-1  "
+        >
+          <IoCloseOutline className="size-5" />
         </Button>
-        <Button {...getPopupIndicatorProps()}>
-          {popupOpen ? <IoChevronUpOutline /> : <IoChevronDownOutline />}
+        <Button
+          {...getPopupIndicatorProps()}
+          className="text-neutral-200 bg-neutral-700 rounded-sm border-orange-800 border-[1px] p-1  "
+        >
+          {popupOpen ? (
+            <IoChevronUpOutline className="size-5" />
+          ) : (
+            <IoChevronDownOutline className="size-5" />
+          )}
         </Button>
       </div>
       {anchorEl && (
@@ -63,7 +83,11 @@ const AutoComplete = React.forwardRef(function AutoComplete(
               (option, index) => {
                 const optionProps = getOptionProps({ option, index });
 
-                return <li {...optionProps}>{option.label}</li>;
+                return (
+                  <li {...optionProps} key={option.key}>
+                    {option.label}
+                  </li>
+                );
               }
             )}
 

@@ -16,7 +16,7 @@ function App() {
     { label: "test12", value: "TEST3", key: 12 },
   ];
   return (
-    <div className="min-h-svh w-full flex justify-center items-center bg-neutral-700 ">
+    <div className="min-h-svh w-full flex justify-center items-center bg-neutral-400 ">
       <AutoComplete multiple={true} options={options} />
     </div>
   );
