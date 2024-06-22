@@ -8,9 +8,10 @@ import {
   IoChevronUpOutline,
   IoCloseOutline,
 } from "react-icons/io5";
+import { AutoCompletePropsType } from "./types";
 
 const AutoComplete = React.forwardRef(function AutoComplete(
-  props: any,
+  props: AutoCompletePropsType,
   ref: React.ForwardedRef<HTMLDivElement>
 ) {
   /** hooks */
@@ -35,7 +36,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
     setAnchorEl,
     groupedOptions,
   } = useAutocomplete({
-    ...props,
+    options: props.options,
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);
@@ -58,11 +59,13 @@ const AutoComplete = React.forwardRef(function AutoComplete(
       {anchorEl && (
         <Popper open={popupOpen} anchorEl={anchorEl}>
           <ul {...getListboxProps()}>
-            {groupedOptions.map((option, index) => {
-              const optionProps = getOptionProps({ option, index });
+            {(groupedOptions as AutoCompletePropsType["options"]).map(
+              (option, index) => {
+                const optionProps = getOptionProps({ option, index });
 
-              return <li {...optionProps}>{option.label}</li>;
-            })}
+                return <li {...optionProps}>{option.label}</li>;
+              }
+            )}
 
             {groupedOptions.length === 0 && <li>No results</li>}
           </ul>
