@@ -15,9 +15,37 @@ function App() {
     { label: "test11", value: "TEST2", key: 11 },
     { label: "test12", value: "TEST3", key: 12 },
   ];
+
+  const components = [
+    {
+      label: "Normal",
+      component: <AutoComplete multiple={false} options={options} />,
+    },
+    {
+      label: "Disabled",
+      component: (
+        <AutoComplete multiple={false} options={options} isDisabled={true} />
+      ),
+    },
+    {
+      label: "PlaceHolder",
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={options}
+          placeholder="Hello ..."
+        />
+      ),
+    },
+  ];
   return (
-    <div className="min-h-svh w-full flex justify-center items-center bg-neutral-400 ">
-      <AutoComplete multiple={true} options={options} />
+    <div className="min-h-svh w-full flex flex-col gap-4 items-center bg-neutral-400 ">
+      {components.map((item) => (
+        <div>
+          <span> {item.label} </span>
+          {item.component}
+        </div>
+      ))}
     </div>
   );
 }
