@@ -105,6 +105,16 @@ function App() {
         />
       ),
     },
+    {
+      label: `Should close on select`,
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={options}
+          shouldCloseOnSelect={false}
+        />
+      ),
+    },
   ];
   return (
     <div className="min-h-screen pt-5 h-full pb-96 w-full flex flex-col gap-4 items-center bg-neutral-200">

@@ -17,5 +17,6 @@ export function setDefaults(props: AutoCompletePropsType): Required<
     onInputChange: props.onInputChange ?? (() => {}),
     inputValue: props.inputValue,
     onClose: props.onClose ?? (() => {}),
+    shouldCloseOnSelect: props.shouldCloseOnSelect ?? true,
   };
 }

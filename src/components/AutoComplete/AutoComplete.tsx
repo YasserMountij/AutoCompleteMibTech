@@ -50,6 +50,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
       updatedProps.onClose(value);
     },
     inputValue: updatedProps.inputValue,
+    disableCloseOnSelect: !updatedProps.shouldCloseOnSelect,
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);
