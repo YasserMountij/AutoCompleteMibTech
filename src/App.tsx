@@ -49,9 +49,15 @@ function App() {
         <AutoComplete
           multiple={false}
           options={options}
-          // isLoading={true}
+          isLoading={true}
           loadingText={"Custom Loading Text"}
         />
+      ),
+    },
+    {
+      label: "Drop down placement",
+      component: (
+        <AutoComplete multiple={false} options={options} placement="top" />
       ),
     },
   ];

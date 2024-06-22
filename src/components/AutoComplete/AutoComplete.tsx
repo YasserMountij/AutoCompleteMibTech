@@ -95,7 +95,11 @@ const AutoComplete = React.forwardRef(function AutoComplete(
         )}
       </div>
       {anchorEl && (
-        <Popper open={popupOpen} anchorEl={anchorEl}>
+        <Popper
+          placement={updatedProps.placement}
+          open={popupOpen}
+          anchorEl={anchorEl}
+        >
           <ul
             {...getListboxProps()}
             className="bg-neutral-800 text-sm p-2 my-3 w-80 overflow-auto rounded-md max-h-[300px] border-orange-900 border-[1px] text-neutral-300"

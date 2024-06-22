@@ -1,3 +1,4 @@
+import { PopperOwnProps } from "@mui/base";
 import { ReactNode } from "react";
 
 type OptionType = {
@@ -14,4 +15,5 @@ export type AutoCompletePropsType = {
   isClearable?: boolean;
   isLoading?: boolean;
   loadingText?: ReactNode;
+  placement?: PopperOwnProps["placement"];
 };
