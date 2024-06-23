@@ -113,6 +113,16 @@ function App() {
       ),
     },
     {
+      label: `On Change (check logs)`,
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={options}
+          onChange={(option) => console.log(`changed`, option)}
+        />
+      ),
+    },
+    {
       label: `Should close on select`,
       component: (
         <AutoComplete

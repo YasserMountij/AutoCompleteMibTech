@@ -44,5 +44,6 @@ export function setDefaults(props: AutoCompletePropsType): Required<
     ),
     disableOptions: props.disableOptions ?? (() => false),
     filterResults: props.filterResults,
+    onChange: props.onChange ?? (() => {}),
   };
 }
