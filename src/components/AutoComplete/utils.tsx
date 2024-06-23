@@ -41,5 +41,6 @@ export function setDefaults(props: AutoCompletePropsType): Required<
         No results
       </div>
     ),
+    disableOptions: props.disableOptions ?? (() => false),
   };
 }

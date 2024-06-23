@@ -45,6 +45,9 @@ const AutoComplete = React.forwardRef(function AutoComplete(
     },
     inputValue: updatedProps.inputValue,
     disableCloseOnSelect: !updatedProps.shouldCloseOnSelect,
+    getOptionDisabled(option) {
+      return updatedProps.disableOptions(option);
+    },
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);
@@ -69,7 +72,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
         <input
           {...getInputProps()}
           id={id}
-          className="bg-transparent w-full outline-0 border-0 text-neutral-200 py-3 px-2"
+          className="bg-transparent w-full outline-0 border-0 text-white py-3 px-2"
           placeholder={updatedProps.placeholder}
           disabled={updatedProps.isDisabled}
           // readOnly={readOnly}
@@ -77,7 +80,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
         {hasClearIcon && (
           <Button
             {...getClearProps()}
-            className="text-neutral-200  rounded-sm  p-1  "
+            className="text-white  rounded-sm  p-1  "
           >
             <CustomClearIcon />
           </Button>
@@ -90,7 +93,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
           <Button
             {...getPopupIndicatorProps()}
             disabled={updatedProps.isDisabled}
-            className={`text-neutral-200  rounded-sm ${
+            className={`text-white  rounded-sm ${
               !updatedProps.isDisabled &&
               " bg-neutral-700 border-orange-800 border-[1px]"
             }   p-1  `}
@@ -107,7 +110,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
         >
           <ul
             {...getListboxProps()}
-            className="bg-neutral-800 text-sm p-2 my-3 w-80 overflow-auto rounded-md max-h-[300px] border-orange-900 border-[1px] text-neutral-300"
+            className="bg-neutral-800 text-sm p-2 my-3 w-80 overflow-auto rounded-md max-h-[300px] border-orange-900 border-[1px] text-white"
           >
             {updatedProps.isLoading ? (
               <li className="rounded-md p-2  text-center cursor-default">
@@ -117,13 +120,18 @@ const AutoComplete = React.forwardRef(function AutoComplete(
               <>
                 {(groupedOptions as AutoCompletePropsType["options"]).map(
                   (option, index) => {
-                    const optionProps = getOptionProps({ option, index });
-                    console.log(optionProps);
+                    const { onClick, ...optionProps } = getOptionProps({
+                      option,
+                      index,
+                    });
                     return (
                       <li
                         {...optionProps}
                         key={option.key}
-                        className="rounded-md p-2 bg-neutral-700/60 hover:cursor-pointer hover:bg-orange-500/20 mb-2 aria-selected:border-orange-800 aria-selected:border-solid aria-selected:border aria-selected:bg-orange-900/30 "
+                        onClick={
+                          optionProps["aria-disabled"] ? undefined : onClick
+                        }
+                        className="rounded-md p-2 bg-neutral-700/60 hover:cursor-pointer hover:bg-orange-500/20 mb-2 aria-selected:border-orange-800 aria-selected:border-solid aria-selected:border aria-selected:bg-orange-900/30 aria-disabled:hover:cursor-default aria-disabled:hover:bg-neutral-700/20 aria-disabled:bg-neutral-700/20 aria-disabled:text-neutral-400"
                       >
                         {option.label}
                       </li>

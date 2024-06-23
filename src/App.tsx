@@ -148,6 +148,18 @@ function App() {
         />
       ),
     },
+    {
+      label: `Disable An Option ( disable even keys)`,
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={options}
+          disableOptions={(option) => {
+            return option.key % 2 === 0;
+          }}
+        />
+      ),
+    },
   ];
   return (
     <div className="min-h-screen pt-5 h-full pb-96 w-full flex flex-col gap-4 items-center bg-neutral-200">

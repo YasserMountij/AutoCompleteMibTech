@@ -4,7 +4,7 @@ import { ReactNode } from "react";
 type OptionType = {
   label: string;
   value: string;
-  key: string | number;
+  key: number;
 };
 
 export type AutoCompletePropsType = {
@@ -28,4 +28,5 @@ export type AutoCompletePropsType = {
 
   renderOnEmptyOptions?: ReactNode;
 
+  disableOptions?: (option: OptionType) => boolean;
 };
