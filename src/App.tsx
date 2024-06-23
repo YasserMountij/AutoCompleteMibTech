@@ -77,6 +77,7 @@ function App() {
           multiple={false}
           options={options}
           onInputChange={(value) => {
+            console.log("HERE");
             setInput1(value);
           }}
         />
@@ -149,13 +150,25 @@ function App() {
       ),
     },
     {
-      label: `Disable An Option ( disable even keys)`,
+      label: `Disable An Option (disable even keys)`,
       component: (
         <AutoComplete
           multiple={false}
           options={options}
           disableOptions={(option) => {
             return option.key % 2 === 0;
+          }}
+        />
+      ),
+    },
+    {
+      label: `Filter Options (remove even keys)`,
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={options}
+          filterResults={(options) => {
+            return options.filter((option) => option.key % 2 !== 0);
           }}
         />
       ),

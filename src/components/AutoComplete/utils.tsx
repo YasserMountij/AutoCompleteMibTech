@@ -7,8 +7,9 @@ import {
 import { AutoCompletePropsType } from "./types";
 
 export function setDefaults(props: AutoCompletePropsType): Required<
-  Omit<AutoCompletePropsType, "inputValue">
+  Omit<AutoCompletePropsType, "inputValue" | "filterResults">
 > & {
+  filterResults: AutoCompletePropsType["filterResults"];
   inputValue: AutoCompletePropsType["inputValue"];
 } {
   return {
@@ -42,5 +43,6 @@ export function setDefaults(props: AutoCompletePropsType): Required<
       </div>
     ),
     disableOptions: props.disableOptions ?? (() => false),
+    filterResults: props.filterResults,
   };
 }

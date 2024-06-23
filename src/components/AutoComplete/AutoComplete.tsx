@@ -36,6 +36,9 @@ const AutoComplete = React.forwardRef(function AutoComplete(
     groupedOptions,
   } = useAutocomplete({
     options: updatedProps.options,
+    isOptionEqualToValue(option, value) {
+      return option.key === value.key;
+    },
     disabled: updatedProps.isDisabled,
     onInputChange(event, value, reason) {
       updatedProps.onInputChange(value);
@@ -48,6 +51,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
     getOptionDisabled(option) {
       return updatedProps.disableOptions(option);
     },
+    filterOptions: updatedProps.filterResults,
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);

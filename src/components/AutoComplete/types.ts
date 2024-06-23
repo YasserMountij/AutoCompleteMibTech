@@ -29,4 +29,5 @@ export type AutoCompletePropsType = {
   renderOnEmptyOptions?: ReactNode;
 
   disableOptions?: (option: OptionType) => boolean;
+  filterResults?: (options: OptionType[]) => OptionType[];
 };
