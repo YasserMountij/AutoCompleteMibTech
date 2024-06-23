@@ -134,6 +134,20 @@ function App() {
         />
       ),
     },
+    {
+      label: `Custom Empty Options`,
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={[]}
+          renderOnEmptyOptions={
+            <div className="rounded-md p-2 text-center cursor-default ">
+              No results
+            </div>
+          }
+        />
+      ),
+    },
   ];
   return (
     <div className="min-h-screen pt-5 h-full pb-96 w-full flex flex-col gap-4 items-center bg-neutral-200">

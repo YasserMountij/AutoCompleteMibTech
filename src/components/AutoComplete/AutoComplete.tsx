@@ -55,6 +55,8 @@ const AutoComplete = React.forwardRef(function AutoComplete(
   const CustomLoadingIcon = () => <>{updatedProps.renderLoadingIcon}</>;
   const CustomOpenedPopupIcon = () => <>{updatedProps.renderOpenedPopupIcon}</>;
   const CustomClosedPopupIcon = () => <>{updatedProps.renderClosedPopupIcon}</>;
+  const CustomOnEmptyOption = () => <> {updatedProps.renderOnEmptyOptions} </>;
+
   return (
     <>
       <div
@@ -109,7 +111,6 @@ const AutoComplete = React.forwardRef(function AutoComplete(
           >
             {updatedProps.isLoading ? (
               <li className="rounded-md p-2  text-center cursor-default">
-                {" "}
                 {updatedProps.loadingText}
               </li>
             ) : (
@@ -130,11 +131,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
                   }
                 )}
 
-                {groupedOptions.length === 0 && (
-                  <li className="rounded-md p-2  text-center cursor-default ">
-                    No results
-                  </li>
-                )}
+                {groupedOptions.length === 0 && <CustomOnEmptyOption />}
               </>
             )}
           </ul>

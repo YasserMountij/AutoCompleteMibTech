@@ -25,4 +25,7 @@ export type AutoCompletePropsType = {
   renderLoadingIcon?: React.ReactNode;
   renderOpenedPopupIcon?: React.ReactNode;
   renderClosedPopupIcon?: React.ReactNode;
+
+  renderOnEmptyOptions?: ReactNode;
+
 };

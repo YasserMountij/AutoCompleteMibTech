@@ -36,5 +36,10 @@ export function setDefaults(props: AutoCompletePropsType): Required<
     renderClosedPopupIcon: props.renderClosedPopupIcon ?? (
       <IoChevronDownOutline className="size-5" />
     ),
+    renderOnEmptyOptions: props.renderOnEmptyOptions ?? (
+      <div className="rounded-md p-2 text-center cursor-default ">
+        No results
+      </div>
+    ),
   };
 }
