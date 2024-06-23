@@ -65,6 +65,17 @@ function App() {
       ),
     },
     {
+      label: "input ReadOnly",
+      component: (
+        <AutoComplete
+          multiple={false}
+          options={options}
+          isReadOnly={true}
+          inputValue="You can't edit it"
+        />
+      ),
+    },
+    {
       label: "Drop down placement",
       component: (
         <AutoComplete multiple={false} options={options} placement="top" />

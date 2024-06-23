@@ -59,7 +59,10 @@ const AutoComplete = React.forwardRef(function AutoComplete(
 
   const rootRef = useForkRef(ref, setAnchorEl);
   const hasClearIcon =
-    updatedProps.isClearable && !updatedProps.isDisabled && dirty;
+    updatedProps.isClearable &&
+    !updatedProps.isDisabled &&
+    dirty &&
+    !updatedProps.isReadOnly;
 
   const CustomClearIcon = () => <>{updatedProps.renderClearIcon}</>;
   const CustomLoadingIcon = () => <>{updatedProps.renderLoadingIcon}</>;
@@ -82,7 +85,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
           className="bg-transparent w-full outline-0 border-0 text-white py-3 px-2"
           placeholder={updatedProps.placeholder}
           disabled={updatedProps.isDisabled}
-          // readOnly={readOnly}
+          readOnly={updatedProps.isReadOnly}
         />
         {hasClearIcon && (
           <Button

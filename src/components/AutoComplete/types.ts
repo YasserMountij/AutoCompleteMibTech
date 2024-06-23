@@ -14,6 +14,7 @@ export type AutoCompletePropsType = {
   isDisabled?: boolean;
   isClearable?: boolean;
   isLoading?: boolean;
+  isReadOnly?: boolean;
   loadingText?: ReactNode;
   shouldCloseOnSelect?: boolean;
   placement?: PopperOwnProps["placement"];

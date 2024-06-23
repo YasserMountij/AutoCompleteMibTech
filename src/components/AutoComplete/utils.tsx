@@ -19,6 +19,7 @@ export function setDefaults(props: AutoCompletePropsType): Required<
     isDisabled: props.isDisabled ?? false,
     isClearable: props.isClearable ?? true,
     isLoading: props.isLoading ?? false,
+    isReadOnly: props.isReadOnly ?? false,
     loadingText: props.loadingText ?? "Loading...",
     placement: props.placement ?? "bottom",
     onInputChange: props.onInputChange ?? (() => {}),
