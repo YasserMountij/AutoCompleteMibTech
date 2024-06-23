@@ -108,7 +108,7 @@ function App() {
         <AutoComplete
           multiple={false}
           options={options}
-          onClose={(value) => console.log(`closed : ${value}`)}
+          onClose={() => console.log(`closed`)}
         />
       ),
     },

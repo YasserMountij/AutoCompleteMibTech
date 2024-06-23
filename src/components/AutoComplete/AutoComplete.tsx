@@ -44,7 +44,10 @@ const AutoComplete = React.forwardRef(function AutoComplete(
       updatedProps.onInputChange(value);
     },
     onChange(event, value, reason, details) {
-      updatedProps.onClose(value);
+      /** add on Change here */
+    },
+    onClose(event, reason) {
+      updatedProps.onClose();
     },
     inputValue: updatedProps.inputValue,
     disableCloseOnSelect: !updatedProps.shouldCloseOnSelect,
