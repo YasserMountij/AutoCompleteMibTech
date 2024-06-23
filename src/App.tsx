@@ -194,6 +194,19 @@ function App() {
         />
       ),
     },
+    {
+      label: `Multiple Options`,
+      component: (
+        <AutoComplete
+          shouldCloseOnSelect={false}
+          multiple={true}
+          options={options}
+          onChangeWithMultiple={(options) => {
+            console.log(options);
+          }}
+        />
+      ),
+    },
   ];
   return (
     <div className="min-h-screen pt-5 h-full pb-96 w-full flex flex-col gap-4 items-center bg-neutral-200">

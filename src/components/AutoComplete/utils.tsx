@@ -7,14 +7,18 @@ import {
 import { AutoCompletePropsType } from "./types";
 
 export function setDefaults(props: AutoCompletePropsType): Required<
-  Omit<AutoCompletePropsType, "inputValue" | "filterResults">
+  Omit<
+    AutoCompletePropsType,
+    "inputValue" | "filterResults" | "onChangeWithMultiple" | "onChange"
+  >
 > & {
   filterResults: AutoCompletePropsType["filterResults"];
   inputValue: AutoCompletePropsType["inputValue"];
+  onChange: AutoCompletePropsType["onChange"];
+  onChangeWithMultiple: AutoCompletePropsType["onChangeWithMultiple"];
 } {
   return {
     options: props.options ?? [],
-    multiple: props.multiple ?? false,
     placeholder: props.placeholder ?? "Insert a placeholder ...",
     isDisabled: props.isDisabled ?? false,
     isClearable: props.isClearable ?? true,
@@ -45,6 +49,8 @@ export function setDefaults(props: AutoCompletePropsType): Required<
     ),
     disableOptions: props.disableOptions ?? (() => false),
     filterResults: props.filterResults,
-    onChange: props.onChange ?? (() => {}),
+    multiple: props.multiple,
+    onChange: props.onChange,
+    onChangeWithMultiple: props.onChangeWithMultiple,
   };
 }

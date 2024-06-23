@@ -9,7 +9,6 @@ type OptionType = {
 
 export type AutoCompletePropsType = {
   options: OptionType[];
-  multiple: boolean;
   placeholder?: string;
   isDisabled?: boolean;
   isClearable?: boolean;
@@ -19,9 +18,10 @@ export type AutoCompletePropsType = {
   shouldCloseOnSelect?: boolean;
   placement?: PopperOwnProps["placement"];
   onInputChange?: (value: string) => void;
-  inputValue?: string;
   onClose?: () => void;
+  onChangeWithMultiple?: (option: OptionType[]) => void;
   onChange?: (option: OptionType | null) => void;
+  inputValue?: string;
 
   renderClearIcon?: React.ReactNode;
   renderLoadingIcon?: React.ReactNode;
@@ -29,7 +29,8 @@ export type AutoCompletePropsType = {
   renderClosedPopupIcon?: React.ReactNode;
 
   renderOnEmptyOptions?: ReactNode;
-
   disableOptions?: (option: OptionType) => boolean;
   filterResults?: (options: OptionType[]) => OptionType[];
+
+  multiple: boolean;
 };

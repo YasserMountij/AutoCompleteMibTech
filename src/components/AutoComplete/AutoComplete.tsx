@@ -44,7 +44,23 @@ const AutoComplete = React.forwardRef(function AutoComplete(
       updatedProps.onInputChange(value);
     },
     onChange(event, value, reason, details) {
-      updatedProps.onChange(value);
+      /** handle multiple options */
+      if (
+        updatedProps.onChangeWithMultiple !== undefined &&
+        updatedProps.multiple === true &&
+        Array.isArray(value)
+      ) {
+        updatedProps.onChangeWithMultiple(value);
+      }
+
+      /** handle single option */
+      if (
+        updatedProps.onChange !== undefined &&
+        updatedProps.multiple === false &&
+        !Array.isArray(value)
+      ) {
+        updatedProps.onChange(value);
+      }
     },
     onClose(event, reason) {
       updatedProps.onClose();
@@ -55,6 +71,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
       return updatedProps.disableOptions(option);
     },
     filterOptions: updatedProps.filterResults,
+    multiple: updatedProps.multiple,
   });
 
   const rootRef = useForkRef(ref, setAnchorEl);
@@ -64,6 +81,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
     dirty &&
     !updatedProps.isReadOnly;
 
+  /** components */
   const CustomClearIcon = () => <>{updatedProps.renderClearIcon}</>;
   const CustomLoadingIcon = () => <>{updatedProps.renderLoadingIcon}</>;
   const CustomOpenedPopupIcon = () => <>{updatedProps.renderOpenedPopupIcon}</>;
@@ -86,6 +104,18 @@ const AutoComplete = React.forwardRef(function AutoComplete(
           placeholder={updatedProps.placeholder}
           disabled={updatedProps.isDisabled}
           readOnly={updatedProps.isReadOnly}
+          {...(() => {
+            if (updatedProps.multiple === true) {
+              return {
+                value:
+                  value !== undefined
+                    ? (value as AutoCompletePropsType["options"])
+                        .map((item) => item.label)
+                        .join(", ")
+                    : "",
+              };
+            }
+          })()}
         />
         {hasClearIcon && (
           <Button
