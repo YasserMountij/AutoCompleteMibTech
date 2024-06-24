@@ -21,20 +21,13 @@ const AutoComplete = React.forwardRef(function AutoComplete(
 
   /** hooks */
   const {
-    expanded,
-    focusedTag,
-    getInputLabelProps,
-    getTagProps,
-    inputValue,
     value,
-    getRootProps,
     getInputProps,
     getPopupIndicatorProps,
     getClearProps,
     getListboxProps,
     getOptionProps,
     dirty,
-    id,
     popupOpen,
     focused,
     anchorEl,
@@ -44,10 +37,10 @@ const AutoComplete = React.forwardRef(function AutoComplete(
     options: updatedProps.options,
     isOptionEqualToValue: (option, value) => option.key === value.key,
     disabled: updatedProps.isDisabled,
-    onInputChange: (event, value, reason) => {
+    onInputChange: (_event, value, _reason) => {
       updatedProps.onInputChange(value);
     },
-    onChange: (event, value, reason, details) => {
+    onChange: (_event, value, _reason, _details) => {
       /** handle multiple options */
       if (
         updatedProps.onChangeWithMultiple !== undefined &&
@@ -66,7 +59,7 @@ const AutoComplete = React.forwardRef(function AutoComplete(
         updatedProps.onChange(value);
       }
     },
-    onClose: (event, reason) => {
+    onClose: (_event, _reason) => {
       updatedProps.onClose();
     },
     inputValue: updatedProps.inputValue,

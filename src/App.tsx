@@ -12,20 +12,22 @@ function App() {
   const [input2, setInput2] = useState("");
 
   const options = [
-    { label: "test1", value: "TEST1", key: 1 },
-    { label: "test2", value: "TEST2", key: 2 },
-    { label: "test3", value: "TEST3", key: 3 },
-    { label: "test4", value: "TEST4", key: 4 },
-    { label: "test5", value: "TEST5", key: 5 },
-    { label: "test6", value: "TEST6", key: 6 },
-    { label: "test7", value: "TEST7", key: 7 },
-    { label: "test8", value: "TEST8", key: 8 },
-    { label: "test9", value: "TEST9", key: 9 },
-    { label: "test10", value: "TEST10", key: 10 },
-    { label: "test11", value: "TEST11", key: 11 },
-    { label: "test12", value: "TEST12", key: 12 },
+    { label: "Option 1", value: "option1", key: 1 },
+    { label: "Option 2", value: "option2", key: 2 },
+    { label: "Option 3", value: "option3", key: 3 },
+    { label: "Option 4", value: "option4", key: 4 },
+    { label: "Option 5", value: "option5", key: 5 },
+    { label: "Option 6", value: "option6", key: 6 },
+    { label: "Option 7", value: "option7", key: 7 },
+    { label: "Option 8", value: "option8", key: 8 },
+    { label: "Option 9", value: "option9", key: 9 },
+    { label: "Option 10", value: "option10", key: 10 },
+    { label: "Option 11", value: "option11", key: 11 },
+    { label: "Option 12", value: "option12", key: 12 },
+    { label: "Option 13", value: "option13", key: 13 },
+    { label: "Option 14", value: "option14", key: 14 },
+    { label: "Option 15", value: "option15", key: 15 },
   ];
-
   const components = [
     {
       label: "Normal",
