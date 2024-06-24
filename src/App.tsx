@@ -1,5 +1,5 @@
+import AutoComplete from "@lib/AutoComplete";
 import { useState } from "react";
-import AutoComplete from "./lib/AutoComplete";
 import {
   IoFlameOutline,
   IoHelp,
