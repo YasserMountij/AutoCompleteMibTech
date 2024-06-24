@@ -78,7 +78,7 @@ function App() {
     {
       label: "Drop down placement",
       component: (
-        <AutoComplete multiple={false} options={options} placement="top" />
+        <AutoComplete multiple={false} options={options} placement="right" />
       ),
     },
     {
@@ -164,7 +164,7 @@ function App() {
           options={[]}
           renderOnEmptyOptions={
             <div className="rounded-md p-2 text-center cursor-default ">
-              No results
+              Custom No results
             </div>
           }
         />
