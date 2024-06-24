@@ -1,5 +1,5 @@
 import { Button } from "@mui/base/Button";
-import { type setDefaults } from "./utils";
+import { type setDefaults } from "../utils";
 
 type Params = {
   getPopupIndicatorProps: () => React.HTMLAttributes<HTMLButtonElement>;

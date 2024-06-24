@@ -3,14 +3,14 @@ import React from "react";
 import { unstable_useForkRef as useForkRef } from "@mui/utils";
 import { AutoCompletePropsType } from "./types";
 import { setDefaults } from "./utils";
-import ClearIcon from "./ClearIcon";
-import LoadingIcon from "./LoadingIcon";
-import PopupIcon from "./PopupIcon";
-import Input from "./Input";
-import LoadingText from "./LoadingText";
-import OptionItem from "./OptionItem";
-import OptionItemWrapper from "./OptionItemWrapper";
-import InputWrapper from "./InputWrapper";
+import ClearIcon from "./components/ClearIcon";
+import LoadingIcon from "./components/LoadingIcon";
+import PopupIcon from "./components/PopupIcon";
+import Input from "./components/Input";
+import LoadingText from "./components/LoadingText";
+import OptionItem from "./components/OptionItem";
+import OptionItemWrapper from "./components/OptionItemWrapper";
+import InputWrapper from "./components/InputWrapper";
 
 const AutoComplete = React.forwardRef(function AutoComplete(
   props: AutoCompletePropsType,

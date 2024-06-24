@@ -1,4 +1,4 @@
-import { type setDefaults } from "./utils";
+import { type setDefaults } from "../utils";
 
 type Params = {
   loadingIcon: ReturnType<typeof setDefaults>["renderLoadingIcon"];

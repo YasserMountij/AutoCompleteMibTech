@@ -1,5 +1,5 @@
 import { Popper } from "@mui/base";
-import { type setDefaults } from "./utils";
+import { type setDefaults } from "../utils";
 
 type Params = {
   placement: ReturnType<typeof setDefaults>["placement"];

@@ -1,5 +1,5 @@
 import React from "react";
-import { type setDefaults } from "./utils";
+import { type setDefaults } from "../utils";
 
 type Params = {
   children: React.ReactNode;

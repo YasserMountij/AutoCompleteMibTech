@@ -1,5 +1,5 @@
 import { UseAutocompleteRenderedOption } from "@mui/base";
-import { AutoCompletePropsType } from "./types";
+import { AutoCompletePropsType } from "../types";
 
 type Params = {
   option: AutoCompletePropsType["options"][number];

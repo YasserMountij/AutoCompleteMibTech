@@ -1,4 +1,4 @@
-import { type setDefaults } from "./utils";
+import { type setDefaults } from "../utils";
 
 const LoadingText = ({
   loadingText,

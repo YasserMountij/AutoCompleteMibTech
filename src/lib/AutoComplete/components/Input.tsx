@@ -1,5 +1,5 @@
-import { AutoCompletePropsType } from "./types";
-import { type setDefaults } from "./utils";
+import { AutoCompletePropsType } from "../types";
+import { type setDefaults } from "../utils";
 
 type Params = {
   getInputProps: () => React.HTMLAttributes<HTMLInputElement>;
